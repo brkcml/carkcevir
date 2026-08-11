@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gizlilik Politikası — Çarkçevir</title>
+<style>
+  :root{
+    --bg:#020617;
+    --panel:#0f172a;
+    --panel-border:#1e293b;
+    --ink:#e2e8f0;
+    --ink-dim:#94a3b8;
+    --ink-faint:#64748b;
+    --gold:#fbbf24;
+    --gold-deep:#f59e0b;
+    --green:#34d399;
+    --max-w:760px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 600px at 15% -10%, rgba(245,158,11,0.10), transparent 60%),
+      radial-gradient(900px 500px at 100% 0%, rgba(52,211,153,0.06), transparent 55%),
+      var(--bg);
+    color:var(--ink);
+    font-family:"Segoe UI", ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--gold);}
+  a:hover{color:var(--gold-deep);}
+
+  header.hero{
+    padding:64px 24px 40px;
+    text-align:center;
+    border-bottom:1px solid var(--panel-border);
+  }
+  .badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 14px;
+    border-radius:999px;
+    background:rgba(245,158,11,0.10);
+    border:1px solid rgba(245,158,11,0.30);
+    color:var(--gold);
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    margin-bottom:18px;
+  }
+  h1{
+    margin:0 0 10px;
+    font-size:clamp(28px, 4vw, 40px);
+    font-weight:900;
+    letter-spacing:0.5px;
+    background:linear-gradient(135deg,#fcd34d,#f59e0b 55%,#fde68a);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .subtitle{color:var(--ink-dim); font-size:14px; margin:0;}
+  .meta{
+    margin-top:18px;
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    flex-wrap:wrap;
+    font-size:12px;
+    color:var(--ink-faint);
+  }
+  .meta span{
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    padding:5px 12px;
+    border-radius:999px;
+  }
+
+  main{
+    max-width:var(--max-w);
+    margin:0 auto;
+    padding:40px 24px 100px;
+  }
+
+  nav.toc{
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-radius:16px;
+    padding:20px 22px;
+    margin-bottom:36px;
+  }
+  nav.toc h2{
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    color:var(--gold);
+    margin:0 0 12px;
+  }
+  nav.toc ol{margin:0; padding-left:20px; columns:1;}
+  nav.toc li{margin-bottom:6px; font-size:13.5px;}
+  nav.toc a{color:var(--ink); text-decoration:none;}
+  nav.toc a:hover{color:var(--gold);}
+
+  section{
+    margin-bottom:38px;
+    padding-bottom:38px;
+    border-bottom:1px solid rgba(30,41,59,0.6);
+  }
+  section:last-of-type{border-bottom:none;}
+
+  .eyebrow{
+    display:block;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--gold-deep);
+    margin-bottom:6px;
+  }
+  h2{
+    font-size:20px;
+    font-weight:800;
+    margin:0 0 14px;
+    color:#f8fafc;
+    scroll-margin-top:24px;
+  }
+  h3{
+    font-size:15px;
+    font-weight:700;
+    color:var(--ink);
+    margin:20px 0 8px;
+  }
+  p{margin:0 0 12px; color:var(--ink); font-size:14.5px;}
+  ul{margin:0 0 12px; padding-left:20px;}
+  li{margin-bottom:6px; font-size:14.5px;}
+  strong{color:#fef3c7; font-weight:700;}
+
+  .card{
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-radius:14px;
+    padding:16px 18px;
+    margin:14px 0;
+  }
+  .card.green{border-color:rgba(52,211,153,0.35); background:rgba(52,211,153,0.06);}
+  .card.amber{border-color:rgba(245,158,11,0.35); background:rgba(245,158,11,0.06);}
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:14px 0;
+    font-size:13px;
+  }
+  th, td{
+    text-align:left;
+    padding:10px 12px;
+    border-bottom:1px solid var(--panel-border);
+    vertical-align:top;
+  }
+  th{color:var(--gold); font-weight:700; font-size:12px; text-transform:uppercase; letter-spacing:0.5px;}
+  td{color:var(--ink-dim);}
+  tr:last-child td{border-bottom:none;}
+
+  .contact-box{
+    background:linear-gradient(135deg, rgba(245,158,11,0.14), rgba(251,191,36,0.06));
+    border:1px solid rgba(245,158,11,0.35);
+    border-radius:18px;
+    padding:24px;
+    text-align:center;
+  }
+  .contact-box p{margin-bottom:4px;}
+  .contact-box .email{
+    font-size:17px;
+    font-weight:800;
+    color:var(--gold);
+  }
+
+  .fill-me{
+    background:rgba(239,68,68,0.12);
+    border:1px dashed rgba(248,113,113,0.6);
+    color:#fca5a5;
+    padding:2px 8px;
+    border-radius:6px;
+    font-size:13px;
+  }
+
+  footer{
+    text-align:center;
+    padding:30px 24px 60px;
+    color:var(--ink-faint);
+    font-size:12px;
+  }
+
+  .back-top{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    color:var(--gold);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    font-size:16px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.4);
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="badge">🎡 Çarkçevir — Mobil Şans Çarkı</span>
+  <h1>Gizlilik Politikası</h1>
+  <p class="subtitle">Verilerinizi nasıl işlediğimizi açık ve anlaşılır bir dille anlatıyoruz.</p>
+  <div class="meta">
+    <span>Yürürlük Tarihi: 12 Ağustos 2026</span>
+    <span>Son Güncelleme: 12 Ağustos 2026</span>
+    <span>Paket Adı: com.brkcml.carkcevirgame</span>
+  </div>
+</header>
+
+<main>
+
+  <nav class="toc" aria-label="İçindekiler">
+    <h2>İçindekiler</h2>
+    <ol>
+      <li><a href="#giris">1. Giriş</a></li>
+      <li><a href="#topladigimiz-veriler">2. Topladığımız Veriler</a></li>
+      <li><a href="#cihazda-veriler">3. Yalnızca Cihazınızda Saklanan Veriler</a></li>
+      <li><a href="#reklamlar">4. Reklamlar ve Google AdMob</a></li>
+      <li><a href="#satin-alma">5. Uygulama İçi Satın Alma / Abonelik</a></li>
+      <li><a href="#izinler">6. Uygulama İzinleri</a></li>
+      <li><a href="#ucuncu-taraflar">7. Üçüncü Taraf Hizmetler</a></li>
+      <li><a href="#veri-guvenligi">8. Veri Güvenliği</a></li>
+      <li><a href="#veri-saklama">9. Verilerin Saklanması ve Silinmesi</a></li>
+      <li><a href="#cocuklarin-gizliligi">10. Çocukların Gizliliği</a></li>
+      <li><a href="#haklariniz">11. KVKK / GDPR Kapsamındaki Haklarınız</a></li>
+      <li><a href="#degisiklikler">12. Politikadaki Değişiklikler</a></li>
+      <li><a href="#iletisim">13. İletişim</a></li>
+    </ol>
+  </nav>
+
+  <section id="giris">
+    <span class="eyebrow">Bölüm 01</span>
+    <h2>1. Giriş</h2>
+    <p>
+      Bu Gizlilik Politikası, <strong>Çarkçevir – Mobil Şans Çarkı</strong> (“Uygulama”) mobil
+      oyununu kullanırken hangi verilerin toplandığını, nasıl kullanıldığını ve
+      hangi haklara sahip olduğunuzu açıklar. Uygulamayı indirip kullanarak bu
+      politikada açıklanan uygulamaları kabul etmiş olursunuz.
+    </p>
+    <p>
+      Uygulama; <strong>com.brkcml.carkcevirgame</strong> paket adıyla
+      <span class="fill-me">Geliştirici Adınız / Şirket Unvanınız</span> tarafından
+      geliştirilmiş ve Google Play Store üzerinden dağıtılmaktadır.
+    </p>
+  </section>
+
+  <section id="topladigimiz-veriler">
+    <span class="eyebrow">Bölüm 02</span>
+    <h2>2. Topladığımız Veriler</h2>
+    <p>
+      Çarkçevir; hesap oluşturmanızı, adınızı, e-posta adresinizi veya başka
+      herhangi bir kimliklendirici bilginizi <strong>istemez ve doğrudan
+      toplamaz</strong>. Oyun, giriş yapmadan doğrudan oynanabilir.
+    </p>
+    <div class="card">
+      <p style="margin-bottom:0;">
+        Uygulama içinde girdiğiniz tek kişisel içerik, isterseniz oluşturduğunuz
+        <strong>özel kategori adları ve oyuncu takma adlarıdır (“Oyuncu 1”,
+        “Oyuncu 2” vb.)</strong> — bunlar yalnızca cihazınızda saklanır, hiçbir
+        sunucuya gönderilmez.
+      </p>
+    </div>
+  </section>
+
+  <section id="cihazda-veriler">
+    <span class="eyebrow">Bölüm 03</span>
+    <h2>3. Yalnızca Cihazınızda Saklanan Veriler</h2>
+    <p>
+      Uygulama, oyun deneyiminizi kişiselleştirmek için aşağıdaki bilgileri
+      <strong>yalnızca kendi cihazınızın yerel deposunda (SharedPreferences)</strong>
+      saklar. Bu veriler bizim sunucularımıza veya üçüncü taraflara
+      <strong>gönderilmez</strong>; yalnızca cihazınızda kalır ve uygulamayı
+      kaldırdığınızda otomatik olarak silinir.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Veri</th><th>Amaç</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Ödül / şampiyonluk geçmişi</td><td>Geçmiş oyun sonuçlarınızı görüntülemeniz için</td></tr>
+        <tr><td>Özel kategoriler ve kelime listeleri</td><td>Kendi oluşturduğunuz kategorileri saklamak için</td></tr>
+        <tr><td>Ses (sessize alma) tercihi</td><td>Uygulama içi ses ayarınızı hatırlamak için</td></tr>
+        <tr><td>Çarkçevir PRO abonelik durumu</td><td>Reklamsız deneyimin aktif olup olmadığını belirlemek için</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="reklamlar">
+    <span class="eyebrow">Bölüm 04</span>
+    <h2>4. Reklamlar ve Google AdMob</h2>
+    <p>
+      Uygulama, gelirini reklamlar aracılığıyla elde etmek için
+      <strong>Google AdMob</strong> hizmetini kullanır (banner, geçiş ve ödüllü
+      video reklamları). AdMob, reklamları göstermek ve kişiselleştirmek için
+      cihazınızdan bazı verileri toplayabilir; bunlar arasında:
+    </p>
+    <ul>
+      <li>Reklam Kimliği (Advertising ID / AAID)</li>
+      <li>Cihaz ve uygulama bilgileri (cihaz modeli, işletim sistemi sürümü)</li>
+      <li>Yaklaşık konum bilgisi (IP adresine dayalı)</li>
+      <li>Reklam etkileşim verileri (gösterim, tıklama)</li>
+    </ul>
+    <p>
+      Bu verilerin toplanması ve işlenmesi tamamen Google'ın kendi
+      <strong>Gizlilik Politikası</strong> ve
+      <strong>Reklam Politikaları</strong> kapsamındadır; biz bu verilere
+      erişemez veya bunları kendi amaçlarımız için kullanamayız.
+    </p>
+    <div class="card amber">
+      <p style="margin-bottom:0;">
+        Google'ın kendi gizlilik uygulamaları hakkında daha fazla bilgi için:
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>
+        ve
+        <a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener">AdMob Gizlilik ve Güvenlik Merkezi</a>.
+      </p>
+    </div>
+    <p>
+      Cihazınızın reklam ayarlarından (Android Ayarlar → Google → Reklamlar)
+      kişiselleştirilmiş reklamları devre dışı bırakabilir veya Reklam
+      Kimliğinizi sıfırlayabilirsiniz. Ayrıca uygulama içinden
+      <strong>Çarkçevir PRO</strong> aboneliğine geçerek tüm banner ve geçiş
+      reklamlarını tamamen kaldırabilirsiniz.
+    </p>
+  </section>
+
+  <section id="satin-alma">
+    <span class="eyebrow">Bölüm 05</span>
+    <h2>5. Uygulama İçi Satın Alma / Abonelik</h2>
+    <p>
+      Uygulama, reklamsız bir deneyim sunan isteğe bağlı <strong>“Çarkçevir
+      PRO”</strong> aylık aboneliğini (₺99,99/ay) içerir. Bu satın alma işlemi
+      tamamen <strong>Google Play Faturalandırma (Google Play Billing)</strong>
+      altyapısı üzerinden gerçekleştirilir.
+    </p>
+    <ul>
+      <li>Kredi kartı, banka kartı veya ödeme bilgileriniz uygulama tarafından
+        görülmez, saklanmaz veya işlenmez — bu bilgiler doğrudan Google Play
+        tarafından güvenli şekilde işlenir.</li>
+      <li>Uygulama yalnızca satın alımınızın "aktif" olup olmadığı bilgisini
+        cihazınızda yerel olarak saklar.</li>
+      <li>Aboneliğinizi istediğiniz zaman Google Play Store &gt; Abonelikler
+        bölümünden iptal edebilirsiniz.</li>
+    </ul>
+  </section>
+
+  <section id="izinler">
+    <span class="eyebrow">Bölüm 06</span>
+    <h2>6. Uygulama İzinleri</h2>
+    <table>
+      <thead>
+        <tr><th>İzin</th><th>Neden Gerekli</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>İnternet Erişimi</td><td>Reklamların yüklenmesi ve abonelik doğrulaması için</td></tr>
+        <tr><td>Ağ Durumu</td><td>Reklam SDK'sının bağlantı durumunu kontrol etmesi için</td></tr>
+        <tr><td>Faturalandırma (Billing)</td><td>Google Play üzerinden Çarkçevir PRO satın alımı için</td></tr>
+      </tbody>
+    </table>
+    <p>Uygulama; konumunuza, kameranıza, mikrofonunuza, rehberinize veya
+      dosyalarınıza erişim talep etmez.</p>
+  </section>
+
+  <section id="ucuncu-taraflar">
+    <span class="eyebrow">Bölüm 07</span>
+    <h2>7. Üçüncü Taraf Hizmetler</h2>
+    <p>Uygulama aşağıdaki üçüncü taraf hizmetlerini kullanır. Bu hizmetlerin
+      kendi gizlilik politikaları geçerlidir:</p>
+    <ul>
+      <li><strong>Google AdMob</strong> — reklam gösterimi</li>
+      <li><strong>Google Play Billing</strong> — uygulama içi abonelik işlemleri</li>
+      <li><strong>Google Play Services</strong> — uygulamanın temel Android işlevleri için</li>
+    </ul>
+  </section>
+
+  <section id="veri-guvenligi">
+    <span class="eyebrow">Bölüm 08</span>
+    <h2>8. Veri Güvenliği</h2>
+    <p>
+      Cihazınızda saklanan tüm oyun verileri (ödül geçmişi, kategoriler, ayarlar)
+      yalnızca yerel olarak, işletim sisteminizin standart uygulama
+      korumasıyla saklanır. Uygulama bu verileri herhangi bir sunucuya
+      iletmediği için, kendi sunucularımızda bir veri ihlali riski
+      bulunmamaktadır.
+    </p>
+  </section>
+
+  <section id="veri-saklama">
+    <span class="eyebrow">Bölüm 09</span>
+    <h2>9. Verilerin Saklanması ve Silinmesi</h2>
+    <p>
+      Cihazınızda saklanan tüm veriler, siz uygulamayı silene veya uygulama
+      verilerini (Ayarlar → Uygulamalar → Çarkçevir → Depolama → Verileri Sil)
+      manuel olarak temizleyene kadar cihazınızda kalır. Uygulama içindeki
+      <strong>“Ödül Geçmişini Temizle”</strong> seçeneğiyle ödül geçmişinizi
+      istediğiniz zaman silebilirsiniz.
+    </p>
+  </section>
+
+  <section id="cocuklarin-gizliligi">
+    <span class="eyebrow">Bölüm 10</span>
+    <h2>10. Çocukların Gizliliği</h2>
+    <p>
+      Uygulama, 13 yaşın altındaki çocuklardan bilerek kişisel veri toplamaz
+      ve özellikle çocuklara yönelik olarak tasarlanmamıştır. Uygulamayı bir
+      çocuğun kullandığını fark eden bir ebeveyn veya vasiyseniz ve verilerin
+      toplandığını düşünüyorsanız, aşağıdaki iletişim bilgilerinden bizimle
+      iletişime geçebilirsiniz.
+    </p>
+  </section>
+
+  <section id="haklariniz">
+    <span class="eyebrow">Bölüm 11</span>
+    <h2>11. KVKK / GDPR Kapsamındaki Haklarınız</h2>
+    <p>
+      Türkiye'de <strong>6698 sayılı Kişisel Verilerin Korunması Kanunu
+      (KVKK)</strong> ve Avrupa Birliği'nde <strong>Genel Veri Koruma
+      Tüzüğü (GDPR)</strong> kapsamında, işlenen kişisel verileriniz
+      bakımından aşağıdaki haklara sahipsiniz:
+    </p>
+    <ul>
+      <li>Verilerinizin işlenip işlenmediğini öğrenme</li>
+      <li>İşlenen verileriniz hakkında bilgi talep etme</li>
+      <li>Verilerinizin silinmesini veya yok edilmesini isteme</li>
+      <li>İşlemeye itiraz etme</li>
+    </ul>
+    <p>
+      Uygulama kendisi kişisel veri toplamadığından, bu haklarınız büyük
+      ölçüde reklam ve ödeme altyapısını sağlayan <strong>Google</strong>
+      nezdinde kullanılır. Google'a ait veri talepleri için:
+      <a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener">myaccount.google.com/data-and-privacy</a>
+    </p>
+  </section>
+
+  <section id="degisiklikler">
+    <span class="eyebrow">Bölüm 12</span>
+    <h2>12. Politikadaki Değişiklikler</h2>
+    <p>
+      Bu Gizlilik Politikasını zaman zaman güncelleyebiliriz. Önemli
+      değişiklikler bu sayfada "Son Güncelleme" tarihinin değiştirilmesiyle
+      birlikte yayınlanacaktır. Politikayı düzenli olarak gözden geçirmenizi
+      öneririz.
+    </p>
+  </section>
+
+  <section id="iletisim" style="border-bottom:none;">
+    <span class="eyebrow">Bölüm 13</span>
+    <h2>13. İletişim</h2>
+    <div class="contact-box">
+      <p>Gizlilik politikasıyla ilgili sorularınız için bize ulaşın:</p>
+      <p class="email"><span class="fill-me">brkcml@gmail.com</span></p>
+      <p style="margin-top:10px; color:var(--ink-faint); font-size:12px;">
+        Çarkçevir – Mobil Şans Çarkı · com.brkcml.carkcevirgame
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Çarkçevir – Mobil Şans Çarkı. Tüm hakları saklıdır.
+</footer>
+
+<a href="#" class="back-top" title="Başa dön" aria-label="Başa dön">↑</a>
+
+</body>
+</html>
